@@ -5,6 +5,10 @@ init:
 	poetry install
 	poetry shell
 
+run:
+	# example: make run command="createsuperuser"
+	poetry run python app/manage.py $(command)
+
 dev:
 	poetry run python app/manage.py runserver
 
