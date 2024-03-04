@@ -80,8 +80,10 @@ pkgs.mkShell {
       psql -U "$PGUSER" -d postgres -c "CREATE DATABASE development" || true
     fi
 
-    echo "Install bun"
-    curl -fsSL https://bun.sh/install | bash
+    if ! command -v bun &> /dev/null; then
+      echo "Installing bun..."
+      curl -fsSL https://bun.sh/install | bash
+    fi
 
     echo "Run redis.. See log on $NIX_SHELL_DIR/redis.log"
     nohup redis-server > $NIX_SHELL_DIR/redis.log 2>&1 &
