@@ -1,0 +1,19 @@
+{% extends 'base/landing_page.html' %}
+
+{% load static %}
+
+{% block body %}
+  <section class="h-screen w-full flex">
+    <div class="m-auto card w-96 bg-base-100 shadow-xl">
+      <div class="card-body space-y-2">
+        <img src="{% static '/images/logo.png' %}" alt="Logo" class="w-[100px]" />
+        <h1 class="text-4xl font-bold">Landing Page</h1>
+        <p class="text-gray-500">Ini adalah landing page untuk aplikasi SIMAPES dengan Django Framework</p>
+        <a href="{% url 'login' %}" class="btn btn-primary">
+          Login
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

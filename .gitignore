@@ -6,4 +6,6 @@ dist/
 node_modules
 style.min.css
 .scannerwork
-
+.nix-shell
+.venv
+dump.rdb

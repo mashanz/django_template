@@ -6,6 +6,7 @@
 - Granian (Rust Python Server)
 - DaisyUI (Tailwind CSS Components)
 - Docker (Containerization)
+- HTMX (Async content using AJAX)
 
 ## Requirements
 

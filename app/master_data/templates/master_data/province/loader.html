@@ -1,0 +1,7 @@
+{% load static %}
+
+<div hx-get="{% url 'master_data:province:table' %}" hx-trigger="load">
+    <div class="flex justify-center">
+        <img alt="Result loading..." src="{% static '/images/loading.svg' %}" />
+    </div>
+</div>
