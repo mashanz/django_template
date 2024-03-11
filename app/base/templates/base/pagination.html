@@ -1,0 +1,36 @@
+<nav hx-target="#province-fragment" hx-swap="innerHTML" class="flex items-center justify-between px-4 py-2">
+    <div class="text-sm">
+        Menampilkan {{ pagination.page.start_index }} sampai {{ pagination.page.end_index }} dari
+        {{ pagination.page.paginator.count }} data
+    </div>
+    <div class="join">
+        {% if pagination.page.number != 1 %}
+        <a hx-get="{% url 'master_data:province:table' %}?page=1" href="{% url 'master_data:province:table' %}?page=1"
+            class="join-item btn">
+            &laquo;
+        </a>
+        {% endif %}
+        {% if pagination.page.has_previous %}
+        <a hx-get="{% url 'master_data:province:table' %}?page={{ pagination.page.previous_page_number }}"
+            href="{% url 'master_data:province:table' %}?page={{ pagination.page.previous_page_number }}"
+            class="join-item btn">
+            {{ pagination.page.previous_page_number }}
+        </a>
+        {% endif %}
+        <button class="join-item btn btn-active btn-disabled">{{ pagination.page.number }}</button>
+        {% if pagination.page.has_next %}
+        <a hx-get="{% url 'master_data:province:table' %}?page={{ pagination.page.next_page_number }}"
+            href="{% url 'master_data:province:table' %}?page={{ pagination.page.next_page_number }}"
+            class="join-item btn">
+            {{ pagination.page.next_page_number }}
+        </a>
+        {% endif %}
+        {% if pagination.page.number != pagination.page.paginator.num_pages %}
+        <a hx-get="{% url 'master_data:province:table' %}?page={{ pagination.page.paginator.num_pages }}"
+            href="{% url 'master_data:province:table' %}?page={{ pagination.page.paginator.num_pages }}"
+            class="join-item btn">
+            &raquo;
+        </a>
+        {% endif %}
+    </div>
+</nav>
