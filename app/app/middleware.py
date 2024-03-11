@@ -13,9 +13,11 @@ class RestrictedAccessMiddleware:
             reverse('login'), 
         ]
 
+        # If the user is not authenticated and the current URL is not in the exempt_urls, redirect to the login page
         if not request.user.is_authenticated and current_url not in exempt_urls:
             return redirect(reverse('login'))
         
+        # If the user is authenticated and the current URL is the login page, redirect to the home page
         if request.user.is_authenticated and current_url == reverse('login'):
             return redirect(reverse('home:index'))
 
