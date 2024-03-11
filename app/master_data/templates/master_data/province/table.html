@@ -10,7 +10,7 @@
     <tbody>
         {% for province in provinces %}
         <tr>
-            <td>{{ startNumber|add:forloop.counter  }}</td>
+            <td>{{ pagination.startNumber|add:forloop.counter  }}</td>
             <td>{{ province.id }}</td>
             <td>{{ province.name }}</td>
             <td>{{ province.created_at }}</td>
@@ -22,32 +22,5 @@
         {% endfor %}
     </tbody>
 </table>
-<nav hx-target="#province-fragment" hx-swap="innerHTML" class="flex justify-center">
-    <div class="join my-2 ">
-        {% if page.number != 1 %}
-        <a hx-get="{% url 'master_data:province:table' %}?page=1" href="{% url 'master_data:province:table' %}?page=1"
-            class="join-item btn">
-            &laquo;
-        </a>
-        {% endif %}
-        {% if page.has_previous %}
-        <a hx-get="{% url 'master_data:province:table' %}?page={{ page.previous_page_number }}"
-            href="{% url 'master_data:province:table' %}?page={{ page.previous_page_number }}" class="join-item btn">
-            {{ page.previous_page_number }}
-        </a>
-        {% endif %}
-        <button class="join-item btn btn-active btn-disabled">{{ page.number }}</button>
-        {% if page.has_next %}
-        <a hx-get="{% url 'master_data:province:table' %}?page={{ page.next_page_number }}"
-            href="{% url 'master_data:province:table' %}?page={{ page.next_page_number }}" class="join-item btn">
-            {{ page.next_page_number }}
-        </a>
-        {% endif %}
-        {% if page.number != page.paginator.num_pages %}
-        <a hx-get="{% url 'master_data:province:table' %}?page={{ page.paginator.num_pages }}"
-            href="{% url 'master_data:province:table' %}?page={{ page.paginator.num_pages }}" class="join-item btn">
-            &raquo;
-        </a>
-        {% endif %}
-    </div>
-</nav>
+
+{% include "base/pagination.html" %}
