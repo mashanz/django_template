@@ -26,5 +26,5 @@ urlpatterns = [
     path("master-data/", include("master_data.urls", namespace="master_data")),
     path("login", auth_views.LoginView.as_view(template_name="landing_page/login.html"), name="login"),
     path("account/", admin.site.urls),
-    path("__debug__/", include("debug_toolbar.urls")),
+    # path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

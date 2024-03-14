@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     "landing_page.apps.LandingPageConfig",
     "master_data.apps.MasterDataConfig",
     "django_htmx",
-    "debug_toolbar",
+    # "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'app.middleware.RestrictedAccessMiddleware',
     "django_htmx.middleware.HtmxMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "app.urls"
