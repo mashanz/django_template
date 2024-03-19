@@ -17,7 +17,7 @@ def table(request: HtmxHttpRequest) -> HttpResponse:
     provinces = getProvinces(limit=limit, offset=(int(pageNumber) - 1) * limit)
     countOfAllData = getProvincesCount()
 
-    pagination = paginator(countOfAllData, pageNumber, limit)
+    pagination = paginator('master_data:province:table', countOfAllData, pageNumber, limit)
 
     return render(request, "master_data/province/table.html", {"provinces": provinces, "pagination": pagination})
 
