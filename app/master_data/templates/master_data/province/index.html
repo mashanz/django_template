@@ -3,23 +3,23 @@
 {% load static %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="bg-white shadow-md rounded-md border-gray-100 divide-y">
-                <div class="p-5 w-full flex items-center justify-between space-x-4">
-                    <h1 class="font-bold text-[20px]">Master Data Provinsi</h1>
-                    <button class="btn btn-primary" hx-get="{% url 'master_data:province:add' %}"
-                        hx-target="#province-fragment">
-                        <i class="fas fa-plus"></i>
-                        Tambah
-                    </button>
-                </div>
-                <div id="province-fragment">
-                    {% include "./loader.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-white shadow-md rounded-md border-gray-100 divide-y">
+                    <div class="p-5 w-full flex items-center justify-between space-x-4">
+                        <h1 class="font-bold text-[20px]">Master Data Provinsi</h1>
+                        <button class="btn btn-primary" hx-get="{% url 'master_data:province:add' %}"
+                                hx-target="#province-fragment">
+                            <i class="fas fa-plus"></i>
+                            Tambah
+                        </button>
+                    </div>
+                    <div id="province-fragment">
+                        {% include "./loader.html" %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

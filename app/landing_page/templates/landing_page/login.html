@@ -3,60 +3,60 @@
 {% load static %}
 
 {% block body %}
-<section class="h-screen w-full flex">
-    <div class="m-auto card w-96 bg-base-100 shadow-xl">
-        <div class="card-body space-y-2">
-            <img src="{% static '/images/logo.png' %}" alt="Logo" class="w-[100px]" />
-            <div class="flex items-center space-x-4">
-                <a href="{% url 'landing_page:index' %}">
-                    <i class="fa fa-chevron-left"></i>
-                </a>
-                <h1 class="text-4xl font-bold">Login</h1>
-            </div>
+    <section class="h-screen w-full flex">
+        <div class="m-auto card w-96 bg-base-100 shadow-xl">
+            <div class="card-body space-y-2">
+                <img src="{% static '/images/logo.png' %}" alt="Logo" class="w-[100px]" />
+                <div class="flex items-center space-x-4">
+                    <a href="{% url 'landing_page:index' %}">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                    <h1 class="text-4xl font-bold">Login</h1>
+                </div>
 
-            {% if form.errors %}
-            <div role="alert" class="alert alert-error">
-                Your username and password didn't match. Please try again.
-            </div>
-            {% endif %}
-
-            {% if next %}
-            {% if user.is_authenticated %}
-            <div role="alert" class="alert alert-error">
-                Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.
-            </div>
-            {% else %}
-            <div role="alert" class="alert alert-error">
-                Please login to see this page.
-            </div>
-            {% endif %}
-            {% endif %}
-
-            <form method="post" action="{% url 'login' %}" class="space-y-4">
-                <label class="form-control w-full">
-                    <div class="label" for="id_password">
-                        <span class="label-text">Username</span>
+                {% if form.errors %}
+                    <div role="alert" class="alert alert-error">
+                        Your username and password didn't match. Please try again.
                     </div>
-                    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username"
-                        maxlength="150" required="" id="id_username" class="input input-bordered w-full">
-                </label>
-                <label class="form-control w-full">
-                    <div class="label" for="id_password">
-                        <span class="label-text">Password</span>
-                    </div>
-                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password"
-                        class="input input-bordered w-full">
-                </label>
-                <button type="submit" class="btn btn-primary w-full">
-                    Masuk
-                </button>
-                <input type="hidden" name="next" value="{{ next }}">
-                {% csrf_token %}
-            </form>
+                {% endif %}
+
+                {% if next %}
+                    {% if user.is_authenticated %}
+                        <div role="alert" class="alert alert-error">
+                            Your account doesn't have access to this page. To proceed,
+                            please login with an account that has access.
+                        </div>
+                    {% else %}
+                        <div role="alert" class="alert alert-error">
+                            Please login to see this page.
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                <form method="post" action="{% url 'login' %}" class="space-y-4">
+                    <label class="form-control w-full">
+                        <div class="label" for="id_password">
+                            <span class="label-text">Username</span>
+                        </div>
+                        <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username"
+                               maxlength="150" required="" id="id_username" class="input input-bordered w-full">
+                    </label>
+                    <label class="form-control w-full">
+                        <div class="label" for="id_password">
+                            <span class="label-text">Password</span>
+                        </div>
+                        <input type="password" name="password" autocomplete="current-password" required="" id="id_password"
+                               class="input input-bordered w-full">
+                    </label>
+                    <button type="submit" class="btn btn-primary w-full">
+                        Masuk
+                    </button>
+                    <input type="hidden" name="next" value="{{ next }}">
+                    {% csrf_token %}
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {# Assumes you set up the password_reset view in your URLconf #}
 

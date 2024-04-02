@@ -4,9 +4,7 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.RunSQL(
@@ -30,8 +28,8 @@ class Migration(migrations.Migration):
                             created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
                         );
                     """
-                )
-                ],
+                ),
+            ],
             reverse_sql=[
                 (
                     """
@@ -42,8 +40,7 @@ class Migration(migrations.Migration):
                     """
                         DROP SCHEMA IF EXISTS "master_data";
                     """
-                )
-                ],
+                ),
+            ],
         )
-
     ]

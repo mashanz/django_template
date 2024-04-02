@@ -9,16 +9,16 @@
     </thead>
     <tbody>
         {% for province in provinces %}
-        <tr>
-            <td>{{ pagination.startNumber|add:forloop.counter  }}</td>
-            <td>{{ province.id }}</td>
-            <td>{{ province.name }}</td>
-            <td>{{ province.created_at }}</td>
-        </tr>
+            <tr>
+                <td>{{ pagination.startNumber|add:forloop.counter  }}</td>
+                <td>{{ province.id }}</td>
+                <td>{{ province.name }}</td>
+                <td>{{ province.created_at }}</td>
+            </tr>
         {% empty %}
-        <tr>
-            <td colspan="4">Tidak ada data</td>
-        </tr>
+            <tr>
+                <td colspan="4">Tidak ada data</td>
+            </tr>
         {% endfor %}
     </tbody>
 </table>

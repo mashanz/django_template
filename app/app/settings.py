@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "fontawesomefree",
-    'django_extensions',
+    "django_extensions",
     "base.apps.BaseConfig",
     "home.apps.HomeConfig",
     "landing_page.apps.LandingPageConfig",
@@ -71,7 +71,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'app.middleware.RestrictedAccessMiddleware',
+    "app.middleware.RestrictedAccessMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
     # "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
@@ -81,7 +81,7 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -159,6 +159,4 @@ LOGIN_REDIRECT_URL = "/home"
 LOGIN_URL = "/login"
 LOGOUT_REDIRECT_URL = "/"
 
-INTERNAL_IPS = [
-    "127.0.0.1"
-]
+INTERNAL_IPS = ["127.0.0.1"]

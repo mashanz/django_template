@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block body %}
-<div hx-get="{% url 'home:home' %}" hx-trigger="load">
-  <img alt="Result loading..." src="{% static '/images/loading.svg' %}" />
-</div>
+  <div hx-get="{% url 'home:home' %}" hx-trigger="load">
+    <img alt="Result loading..." src="{% static '/images/loading.svg' %}" />
+  </div>
 {% endblock %}

@@ -4,39 +4,39 @@
 <!doctype html>
 <html data-theme="light" lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="{% static 'css/style.min.css' %}" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet" />
 
-  <script src="{% static 'js/htmx.min.js' %}" defer></script>
-  <script src="{% static 'js/htmx-ext/ajax-header.js' %}" defer></script>
+    <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    <script src="{% static 'js/htmx-ext/ajax-header.js' %}" defer></script>
 
-  {% if debug %}
-  <script src="{% static 'js/htmx-ext/django-toolbar.js' %}" defer></script>
-  <script src="{% static 'js/htmx-ext/debug.js' %}" defer></script>
-  {% endif %}
+    {% if debug %}
+      <script src="{% static 'js/htmx-ext/django-toolbar.js' %}" defer></script>
+      <script src="{% static 'js/htmx-ext/debug.js' %}" defer></script>
+    {% endif %}
 
-  <script src="{% static 'js/alpine.min.js' %}"></script>
+    <script src="{% static 'js/alpine.min.js' %}"></script>
 
-  {% django_htmx_script %}
+    {% django_htmx_script %}
 
-  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 
-  <title>{{ html_page.title | default:"SIMAPES" }}</title>
-  <meta name="description" content="{{ html_page.description
-               | default:"Sistem Manajemen Pesantren" }}" />
-  {% block head %}{% endblock head %}
-</head>
+    <title>{{ html_page.title | default:"SIMAPES" }}</title>
+    <meta name="description" content="{{ html_page.description
+                                      | default:"Sistem Manajemen Pesantren" }}" />
+    {% block head %}{% endblock head %}
+  </head>
 
-<body class="bg-gray-50" hx-ext="debug, event-header" hx-boost="true">
-  <div class="flex items-center h-screen w-full">
-    {% include './sidebar.html' %}
-    <div class="w-full h-screen overflow-y-auto py-5 px-8">
-      {% block body %}{% endblock body %}
+  <body class="bg-gray-50" hx-ext="debug, event-header" hx-boost="true">
+    <div class="flex items-center h-screen w-full">
+      {% include './sidebar.html' %}
+      <div class="w-full h-screen overflow-y-auto py-5 px-8">
+        {% block body %}{% endblock body %}
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 
 </html>

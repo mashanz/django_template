@@ -1,17 +1,17 @@
 <form method="post" action="{% url 'master_data:province:create' %}" class="space-y-4 p-5"
-    data-hx-post="{% url 'master_data:province:create' %}" data-hx-target="#province-fragment" data-hx-swap="innerHTML"
-    onsubmit="event.preventDefault();">
+      data-hx-post="{% url 'master_data:province:create' %}" data-hx-target="#province-fragment" data-hx-swap="innerHTML"
+      onsubmit="event.preventDefault();">
     <h2 class="text-lg font-semibold">Add Province</h2>
     <label class="form-control w-full">
         <div class="label" for="province-name">
             <span class="label-text">Province Name</span>
         </div>
         <input type="text" name="name" autofocus="" maxlength="100" required id="province-name"
-            class="input input-bordered w-full">
+               class="input input-bordered w-full">
     </label>
     <div class="flex items-center justify-between">
         <button type="button" class="btn w-40" hx-get="{% url 'master_data:province:table' %}"
-            hx-target="#province-fragment" hx-boost>
+                hx-target="#province-fragment" hx-boost>
             <i class="fa fa-chevron-left"></i>
             Batal
         </button>

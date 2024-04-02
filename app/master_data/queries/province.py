@@ -1,6 +1,7 @@
 from django.db import connection
 from app.utils.Queries import dictFetchAll, dictFetchOne
 
+
 def getProvinces(limit=None, offset=None):
     query = "SELECT * FROM master_data.province"
 
@@ -12,6 +13,7 @@ def getProvinces(limit=None, offset=None):
 
     return output
 
+
 def getProvincesCount():
     query = "SELECT COUNT(*) FROM master_data.province"
 
@@ -21,9 +23,12 @@ def getProvincesCount():
 
     return count
 
+
 def createProvince(name):
     with connection.cursor() as cursor:
-        cursor.execute("INSERT INTO master_data.province (name) VALUES (%s) RETURNING *", [name])
+        cursor.execute(
+            "INSERT INTO master_data.province (name) VALUES (%s) RETURNING *", [name]
+        )
         output = dictFetchOne(cursor)
 
     return output

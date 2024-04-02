@@ -5,10 +5,12 @@ from django.http import HttpResponse
 from master_data.queries.province import getProvinces, createProvince, getProvincesCount
 from app.utils.Pagination import paginator
 
+
 # Create your views here.
 @require_GET
 def index(request):
     return render(request, "master_data/province/index.html")
+
 
 @require_GET
 def table(request: HtmxHttpRequest) -> HttpResponse:
@@ -17,13 +19,21 @@ def table(request: HtmxHttpRequest) -> HttpResponse:
     provinces = getProvinces(limit=limit, offset=(int(pageNumber) - 1) * limit)
     countOfAllData = getProvincesCount()
 
-    pagination = paginator('master_data:province:table', countOfAllData, pageNumber, limit)
+    pagination = paginator(
+        "master_data:province:table", countOfAllData, pageNumber, limit
+    )
 
-    return render(request, "master_data/province/table.html", {"provinces": provinces, "pagination": pagination})
+    return render(
+        request,
+        "master_data/province/table.html",
+        {"provinces": provinces, "pagination": pagination},
+    )
+
 
 @require_GET
 def add(request: HtmxHttpRequest) -> HttpResponse:
     return render(request, "master_data/province/add.html")
+
 
 @require_POST
 def create(request: HtmxHttpRequest):

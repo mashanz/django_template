@@ -1,5 +1,6 @@
 from django.test import TestCase
 
+
 class ProvincesTestClass(TestCase):
     @classmethod
     def setUpTestData(cls):

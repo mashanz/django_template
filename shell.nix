@@ -42,7 +42,7 @@ pkgs.mkShell {
     # Setup PostgreSQL
     mkdir $NIX_SHELL_DIR
     
-   trap \
+    trap \
     "
       pg_ctl -D $PGDATA stop
       pkill redis-server
