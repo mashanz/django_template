@@ -12,7 +12,7 @@ COPY app /app
 RUN uv run manage.py collectstatic --noinput
 
 # Run Static
-FROM ghcr.io/mashanz/cdn:0.1.3-static AS runner
+FROM ghcr.io/mashanz/cdn:0.1.4-static AS runner
 WORKDIR /static
 COPY --from=build /static /static
 EXPOSE 8080

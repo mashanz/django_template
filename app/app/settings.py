@@ -25,7 +25,6 @@ env = environ.Env(
     POSTGRES_USER=(str, ""),
     POSTGRES_PASSWORD=(str, ""),
     STATIC_URL=(str, "/static"),
-    MEDIA_URL=(str, "/media"),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -150,7 +149,6 @@ USE_TZ = True
 
 STATIC_URL = env("STATIC_URL")
 STATIC_ROOT = os.path.join(BASE_DIR.parent, "static")
-STATIC_URL = env("MEDIA_URL")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -4,6 +4,8 @@ services:
       context: .
       dockerfile: docker/app.dockerfile
     restart: always
+    environment:
+      - STATIC_URL=http://localhost:8080/
     ports:
       - 8000:8000
 
