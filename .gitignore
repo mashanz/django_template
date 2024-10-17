@@ -9,3 +9,4 @@ style.min.css
 .nix-shell
 .venv
 dump.rdb
+.ruff_cache

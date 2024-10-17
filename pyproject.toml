@@ -1,68 +1,26 @@
-[tool.poetry]
-name = "django-template"
-version = "0.1.0"
-description = "Django template project."
-authors = ["IMP Studio"]
-license = "MIT"
-readme = "README.md"
-packages = [{ include = "app" }]
-
-[tool.poetry.dependencies]
-python = "^3.12"
-Django = "^4.2.7"
-granian = "^0.7.1"
-django-environ = "^0.11.2"
-psycopg-binary = "^3.1.12"
-psycopg2-binary = "^2.9.9"
-fontawesomefree = "6.5.1"
-django-htmx = "1.17.3"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.1.3"
-interrogate = "^1.5.0"
-djhtml = "^3.0.6"
-setuptools = "^68.2.2"
-django-extensions = "^3.2.3"
-django-debug-toolbar = "4.3"
-selenium = "4.18.1"
-
-
-[tool.pdm]
-[tool.pdm.dev-dependencies]
-dev = [
-    "ruff<1.0.0,>=0.1.3",
-    "interrogate<2.0.0,>=1.5.0",
-    "djhtml<4.0.0,>=3.0.6",
-    "setuptools<69.0.0,>=68.2.2",
-    "django-extensions<4.0.0,>=3.2.3",
-    "django-debug-toolbar==4.3",
-    "selenium==4.18.1",
-]
-
-[tool.pdm.build]
-includes = ["app"]
-
-[tool.pdm.scripts]
-format = { composite = ["ruff format app", "djhtml app"] }
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
 [project]
-authors = [{ name = "IMP Studio" }]
-license = { text = "MIT" }
-requires-python = ">=3.12,<4.0"
-dependencies = [
-    "Django>=5.0.3",
-    "granian<1.0.0,>=0.7.1",
-    "django-environ<1.0.0,>=0.11.2",
-    "psycopg-binary<4.0.0,>=3.1.12",
-    "psycopg2-binary<3.0.0,>=2.9.9",
-    "fontawesomefree==6.5.1",
-    "django-htmx==1.17.3",
-]
 name = "django-template"
-version = "0.1.0"
-description = "Django template project."
+version = "0.2.0"
+description = "Django template project"
 readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django==5.1.2",
+    "django-environ==0.11.2",
+    "django-htmx==1.17.3",
+    "fontawesomefree==6.5.1",
+    "granian==0.7.6",
+    "psycopg2-binary==2.9.10",
+    "setuptools==75.2.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "django-debug-toolbar==4.4.6",
+    "django-extensions==3.2.3",
+    "djhtml==3.0.6",
+    "interrogate==1.7.0",
+    "pytest==8.3.3",
+    "ruff==0.6.9",
+    "selenium==4.25.0",
+]

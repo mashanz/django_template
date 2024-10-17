@@ -16,14 +16,16 @@ from pathlib import Path
 
 # Environment variables
 env = environ.Env(
-    DEBUG=(bool, False),
-    SECRET_KEY=(str, ""),
-    ALLOWED_HOSTS=(list, []),
+    DEBUG=(bool, True),
+    SECRET_KEY=(str, "some_secret"),
+    ALLOWED_HOSTS=(list, ["*"]),
     POSTGRES_DB=(str, ""),
     POSTGRES_HOST=(str, ""),
     POSTGRES_PORT=(int, ""),
     POSTGRES_USER=(str, ""),
     POSTGRES_PASSWORD=(str, ""),
+    STATIC_URL=(str, "/static"),
+    MEDIA_URL=(str, "/media"),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -146,8 +148,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = env("STATIC_URL")
 STATIC_ROOT = os.path.join(BASE_DIR.parent, "static")
+STATIC_URL = env("MEDIA_URL")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

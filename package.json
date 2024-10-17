@@ -1,7 +1,10 @@
 {
-  "dependencies": {},
+  "scripts": {
+    "tw:build": "tailwindcss -i app/base/static/css/base.css -o ./app/base/static/css/style.min.css --minify",
+    "tw:watch": "tailwindcss -i app/base/static/css/base.css -o ./app/base/static/css/style.min.css --watch"
+  },
   "devDependencies": {
-    "daisyui": "latest",
-    "tailwindcss": "^3.3.5"
+    "daisyui": "4.7.3",
+    "tailwindcss": "3.4.1"
   }
 }

@@ -1,0 +1,16 @@
+services:
+  service-app:
+    build:
+      context: .
+      dockerfile: docker/app.dockerfile
+    restart: always
+    ports:
+      - 8000:8000
+
+  service-static:
+    build:
+      context: .
+      dockerfile: docker/static.dockerfile
+    restart: always
+    ports:
+      - 8080:8080

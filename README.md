@@ -2,40 +2,73 @@
 
 ## Tech Stack
 
-- Django
+- Nix (Declarative build and deployment)
+- Django (Python Fullstack Framework)
 - Granian (Rust Python Server)
 - DaisyUI (Tailwind CSS Components)
-- Docker (Containerization)
+- Podman/Docker (Containerization Tools)
 - HTMX (Async content using AJAX)
 
 ## Requirements
 
-- Python +3 (already installed on mac or ubuntu)
-- Poetry +1.7 (`brew install poetry` or `sudo apt install poetry`)
-- Make +3.81 (`brew install make` or `sudo apt install make`)
-- Bun +1 (`brew tap oven-sh/bun && brew install bun`)
+Yes, just use nix and nix will manage everything
 
-> no need to install virtual environment or venv or conda or anything else. because `poetry` is virtual package manager with `.venv` environment. Similar to npm/pnpm/yanr as package manager and `node_modules` as virtual environment
+- [Nix](https://zero-to-nix.com/)
+
+install nix with this command
+```sh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+> no need to install virtual environment or venv or conda or python or nodejs or bun or anything else. Because nix manage all of it
 
 ## Runing on Local
 
 ```bash
+
 # Copy .env.example to .env and modify it
 cp .env.example .env
-# install dependencies
-make
+
+# activate nix shell
+nix-shell -p uv bun podman
+
+# install dependency
+uv sync
+bun i
+
 # run migrations
-make migrate
+uv run app/manage.py migrate
+
 # render tailwind
-make tailwind
+bun tw:build
+
 # render tailwind with watch mode
-make tailwind-watch
+bun tw:watch
+
 # collect static for production
-make collecstatic
+uv run app/manage.py collectstatic --noinput
+
 # run dev server with watch mode
-make dev
-# run prod server
-make prod
-# run tests
-make test
+uv run app/manage.py runserver | bun tw:watch
+
+# run tests docs
+uv run interrogate -vvv
+
+# check format lint
+uv run ruff check app
+
+# format app
+uv run ruff format app
+uv run djhtml app
+```
+
+## Simulation of deployment
+
+```sh
+# (optional) if you don't have podman machine instance initiated and running (make sure already inside nix-shell)
+podman machine init
+podman machine start
+
+# run compose (rebuild to make sure latest update deployed)
+podman compose up --build
 ```
