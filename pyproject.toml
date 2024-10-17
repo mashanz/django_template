@@ -12,12 +12,12 @@ dependencies = [
     "granian==0.7.6",
     "psycopg2-binary==2.9.10",
     "setuptools==75.2.0",
+    "django-extensions>=3.2.3",
 ]
 
 [tool.uv]
 dev-dependencies = [
     "django-debug-toolbar==4.4.6",
-    "django-extensions==3.2.3",
     "djhtml==3.0.6",
     "interrogate==1.7.0",
     "pytest==8.3.3",
