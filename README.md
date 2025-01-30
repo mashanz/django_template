@@ -8,6 +8,7 @@
 - DaisyUI (Tailwind CSS Components)
 - Podman/Docker (Containerization Tools)
 - HTMX (Async content using AJAX)
+- [UV](https://docs.astral.sh/uv/)
 
 ## Requirements
 
@@ -16,6 +17,7 @@ Yes, just use nix and nix will manage everything
 - [Nix](https://zero-to-nix.com/)
 
 install nix with this command
+
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
